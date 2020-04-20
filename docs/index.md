@@ -1,9 +1,11 @@
 # Welcome to Crossgate solutions SMS Gateway Documentation
-# API Documentation
+
+## API Documentation
+
 This API is a RESTful API. It uses standard RESTful error codes and custom message error codes.
 
+## Request Headers:
 
-## Request Headers:   
 The details below will be needed for authentication.
 
 >| Parameter | Data Type  |Description
@@ -35,22 +37,22 @@ Parameters needed:
 >|ttl |Integer |Optional |This field is reserved. When given, it validates the lifetime the sms should be valid for sending from the time the request is received. Given in seconds.
 
 
-Sample send sms request JSON strucutre:
+Sample send sms request JSON strucutre:  
 
->{   
->>  "profile_id":123,   
->> "phone_number":"254700872844",   
->>"message":"Sample text SMS"  
->}
+    {   
+    "profile_id":123,   
+    "phone_number":"254700872844",   
+    "message":"Sample text SMS"  
+    }
 
 Sample send sms request JSON Response:
 
-{  
-"request_id": "53c426b8483e416b89450500ac1c5919",  
-"sms_units_balance": 22,  
-"message_length": 15,  
-"sms_count": 1  
-}
+    {  
+    "request_id": "53c426b8483e416b89450500ac1c5919",  
+    "sms_units_balance": 22,  
+    "message_length": 15,  
+    "sms_count": 1  
+    }
 
 ## 2.2.	Batch/Bulk SMS sending.
 
@@ -67,66 +69,51 @@ Batch SMS parameters are a list of the transactional sms messages object paramet
 
 Sample Batch SMS sending:
 
-{  
+    {  
+    "profile_id":"1708151",  
+    "batch_list":   
+          [  
+                {   
+                  "message": "Dear Lorem ",  
+                  "phone_number": "254722912908", 
+                },  
+                { 
 
-"profile_id":"1708151",  
-"batch_list": [  
+                "message": "Dear Ipsum David ",  
+                "phone_number": "254720151600",  
+                "reference_number": "1234",  
 
->>{   
+                }  
+          ]  
 
->>>"message": "Dear Lorem ",  
->>>"phone_number": "254722912908", 
-
->>},  
->>{ 
-
->>>"message": "Dear Ipsum David ",  
->>>"phone_number": "254720151600",  
->>>"reference_number": "1234",  
-
->>}  
-]  
-
-}  
+    }  
 
 Sample Bacth sms body response:
 
->{  
->>"sms_units_balance": 22,  
->>"batch_list": [  
->>>{        
->>>"message_length": 15,  
->>>"message": "Dear Lorem ",  
->>>"request_id": "508d84f1c3da405e8c9d5eb406e14b01",  
->>>"phone_number": "254722912908",  
->>>"sms_count": 1  
->>>},  
+    {  
+    "sms_units_balance": 22,  
+    "batch_list": 
+        [  
+            {        
+              "message_length": 15,  
+              "message": "Dear Lorem ",  
+              "request_id": "508d84f1c3da405e8c9d5eb406e14b01",  
+              "phone_number": "254722912908",  
+              "sms_count": 1  
+            },  
 
->>>{  
->>>"message_length": 15,  
->>>"message": "Dear Ipsum David ",    
->>>"request_id": "5a572315c9994910bf4514c88f92b288",  
->>>"phone_number": "254720151600",  
->>>"reference_number": "1234",  
->>>"sms_count": 1 
->>>}  
->>],  
->"profile_id": "1708151"  
+            {  
+              "message_length": 15,  
+              "message": "Dear Ipsum David ",    
+              "request_id": "5a572315c9994910bf4514c88f92b288",  
+              "phone_number": "254720151600",  
+              "reference_number": "1234",  
+              "sms_count": 1 
+            }  
+        ],  
+    "profile_id": "1708151"  
 
->}
+    }
 
 
 
-## Commands
-   To create a webpage using  this format you need to clearly understand how to travel using aeroplane
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-### Project layout
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.

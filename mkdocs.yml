@@ -1,5 +1,5 @@
 site_name: Cross Gate Solutions sms API Documentation
 nav:
-    - Home: index.md
-    - About: about.md
+    - Bulk SMs: index.md
+    - Subscription: about.md
 theme: readthedocs
